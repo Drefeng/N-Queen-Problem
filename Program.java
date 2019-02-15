@@ -1,7 +1,16 @@
 public class Program {
     public static void main(String[] args) {
-        Game game = new Game();
+        Board board = new Board(8);
 
-        game.gameStart();
+        board.drawBoard();
+        board.markPiece(new Queen(3,2));
+        board.drawBoard();
+
+        if (board.solve(0) == false) {
+            System.out.println("No solution");
+        } else {
+            System.out.println("Solution: ");
+            board.drawBoard();
+        }
     }
 }
