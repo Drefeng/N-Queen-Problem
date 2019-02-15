@@ -19,11 +19,12 @@ public class Board{
                     System.out.print(board[x][y]);
                 }
                 else{
-                    System.out.print("| O");
+                    System.out.print(" 0 ");
                 }
             }
+            System.out.println();
         }
-    System.out.println();
+    
     }
 
 }
