@@ -4,6 +4,6 @@ public class Program {
         game.gameStart();*/
         Board board = new Board(8);
         board.drawBoard();
-        
+        board.indexConverter();
     }
 }

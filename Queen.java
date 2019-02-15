@@ -3,7 +3,7 @@ public class Queen extends Piece {
         super(x, y);
     }
 
-    public boolean isValid(Board board, int row, int col) {
+     public boolean isValid(Board board, int row, int col) {
         int i, j;
 
         for (i = 0; i < col; i++) {
@@ -16,11 +16,12 @@ public class Queen extends Piece {
                 return false;
         }
 
-        for (i = row, j = col; j >= 0 && i < board.getBoard().lenth; i++, j--) {
+        for (i = row, j = col; j >= 0 && i < board.getBoard().length; i++, j--) {
             if (board.getBoard()[i][j] != null) 
                 return false;
         }
 
         return true;
     }
+
 }
