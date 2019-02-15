@@ -9,10 +9,6 @@ public class Board{
          board = new Piece[size][size];
     }
 
-    public Piece[][] getBoard() {
-        return board;
-    }
-
     public Piece getPieceAt(int x, int y) {
         if (x >= 0 && x < board.length && y >= 0 && y < board.length)
             return board[x][y];
@@ -63,6 +59,11 @@ public class Board{
             algebraic.put(Integer.toString(number[i]), i);
         } 
         System.out.println(algebraic);
+    }
+
+    public boolean solve(int col) {
+        
+        return true;
     }
 }
 
