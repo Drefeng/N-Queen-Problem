@@ -6,7 +6,6 @@ public class Board{
      
     public Board(int size){
          board = new Piece[size][size];
-    
     }
 
 
