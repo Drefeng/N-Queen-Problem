@@ -3,7 +3,7 @@ public class Queen extends Piece {
         super(x, y);
     }
 
-    public boolean isValid(Board board, int row, int col) {
+     public boolean isValid(Board board, int row, int col) {
         int i, j;
 
         for (i = 0; i < col; i++) {
