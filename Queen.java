@@ -16,11 +16,16 @@ public class Queen extends Piece {
                 return false;
         }
 
-        for (i = row, j = col; j >= 0 && i < board.getBoard().lenth; i++, j--) {
+        for (i = row, j = col; j >= 0 && i < board.getBoard().length; i++, j--) {
             if (board.getBoard()[i][j] != null) 
                 return false;
         }
 
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return " Q ";
     }
 }
