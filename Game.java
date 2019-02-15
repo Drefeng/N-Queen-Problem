@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Game {
     private Board board;
-    //private Queen queen;
+    private Queen queen;
 
     private Scanner keyboard;
 
@@ -23,7 +23,7 @@ public class Game {
             choice = keyboard.next();
             
             if(checkCharacter(choice.substring(0,1)) && checkNumbers(Integer.parseInt(choice.substring(1)))){
-                System.out.println("You wrote the right character");
+                System.out.println("Hello");
             }else{
                 System.out.println("Wrong input!!! \nMust be \nExample: a1 to g8");
             }
