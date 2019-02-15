@@ -61,9 +61,49 @@ public class Board{
         System.out.println(algebraic);
     }
 
-    public boolean solve(int col) {
+    public boolean isValid(int row, int col) {
+        int i, j;
+
+        // left horizontal
+        for (i = 0; i < col; i++) {
+            if (board[row][i] != null)
+                return false;
+        }
+
+        // right horizontal
         
+        // left upper diagonal
+        for (i = row, j = col; i >= 0 && j >= 0; i--, j--) {
+            if (board[i][j] != null)
+                return false;
+        }
+
+        // left lower diagonal
+        for (i = row, j = col; j >= 0 && i < board.length; i++, j--) {
+            if (board[i][j] != null) 
+                return false;
+        }
+
+        
+
         return true;
+    }
+
+    public boolean solve(int col) {
+        if (col >= board.length)
+            return true;
+
+        for (int i = 0; i < board.length; i++) {
+            if (isValid(i, col)) {
+                markPiece(new Queen(i, col));
+
+                if (solve(col + 1) == true) {
+                    return true;
+                }
+                board[i][col] = null;
+            }
+        }
+        return false;
     }
 }
 
