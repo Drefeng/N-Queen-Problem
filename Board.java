@@ -1,5 +1,7 @@
 import java.util.Arrays;
 import java.util.HashMap;
+
+import com.sun.java.swing.plaf.windows.WindowsTreeUI.CollapsedIcon;
 public class Board{
 
     private Piece[][] board; 
@@ -61,46 +63,42 @@ public class Board{
         System.out.println(algebraic);
     }
 
-    public boolean isValid(int row, int col) {
-        int i, j;
 
-        // left horizontal
-        for (i = 0; i < col; i++) {
-            if (board[row][i] != null)
-                return false;
-        }
-
-        // right horizontal
-        
-        // left upper diagonal
-        for (i = row, j = col; i >= 0 && j >= 0; i--, j--) {
-            if (board[i][j] != null)
-                return false;
-        }
-
-        // left lower diagonal
-        for (i = row, j = col; j >= 0 && i < board.length; i++, j--) {
-            if (board[i][j] != null) 
-                return false;
-        }
-
-        
-
-        return true;
+    public boolean isValid(int i, int j) {
+        int k,l;
+       //checking if there is a queen in row or column
+       for(k=0;k<board.length;k++)
+       {
+           if((board[i][k] != null) || (board[k][j] != null))
+               return false;
+       }
+       //checking for diagonals
+       for(k=0;k<board.length;k++)
+       {
+           for(l=0;l<board.length;l++)
+           {
+               if(((k+l) == (i+j)) || ((k-l) == (i-j)))
+               {
+                   if(board[k][l] != null)
+                       return false;
+               }
+           }
+       }
+       return true;
     }
 
     public boolean solve(int col) {
         if (col >= board.length)
             return true;
-
-        for (int i = 0; i < board.length; i++) {
-            if (isValid(i, col)) {
-                markPiece(new Queen(i, col));
+        
+        for (int row = 0; row < board.length; row++) {
+            if (isValid(row, col)) {
+                markPiece(new Queen(row, col));
 
                 if (solve(col + 1) == true) {
                     return true;
                 }
-                board[i][col] = null;
+                board[row][col] = null;
             }
         }
         return false;
