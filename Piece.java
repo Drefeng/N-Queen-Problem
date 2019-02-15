@@ -1,5 +1,8 @@
 public abstract class Piece {
     protected Point position;
 
-    public abstract void move(int x, int y);    
+    public Piece(int x, int y) {
+        position.setX(x);
+        position.setY(y);
+    }   
 }
