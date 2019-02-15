@@ -1,14 +1,25 @@
 import java.util.Arrays;
-
+import java.util.HashMap;
 public class Board{
 
-    private Piece[][] board; 
-     
+    private Piece[][] board;    
+
     public Board(int size){
          board = new Piece[size][size];
     
     }
 
+
+    public boolean isOccupied(Piece piece) {
+        if(piece != null)
+            return true;
+        return false;
+    }
+
+    public void markPiece(int x, int y, Piece piece){
+        board[x][y] = piece;
+
+    }
 
 
     public void drawBoard(){
@@ -27,4 +38,11 @@ public class Board{
     
     }
 
+    public void indexConverter(){
+
+    }
+    
+    
 }
+
+
